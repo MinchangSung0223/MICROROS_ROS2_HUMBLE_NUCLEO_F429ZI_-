@@ -47,7 +47,31 @@ Board Selector선택
 ![image](https://github.com/user-attachments/assets/5b065b2c-98ca-4405-a3b8-7b84f9bf0c70)
 
 
-Project Name을 설정 
+Project Name을 설정 후 Finish
+
 ![image](https://github.com/user-attachments/assets/516c7b83-fe2d-422a-854f-dcaab1af94ff)
+
+## 3. 세팅
+System Core -> SYS -> Timebase Source: TIM1 
+
+![image](https://github.com/user-attachments/assets/b9b6f6c6-ce05-42c0-869f-ceebd93302ec)
+
+System Core -> RCC -> High Speed Clock (HSE) : Crystal/Ceramic Resonator 
+
+![image](https://github.com/user-attachments/assets/34574d15-ad1d-4988-baf5-1ac182f8144a)
+
+Connectivity -> USART3 -> NVIC Settings -> global interrupt  Enabled 체크
+
+![image](https://github.com/user-attachments/assets/2fd4d573-2ba2-466c-8ea1-f2fb5dcae999)
+
+Connectivity -> USART3 -> DMA Settings -> Add Rx , Tx -> Priority Very High, RX의 경우 Mode를 Circular로
+
+![image](https://github.com/user-attachments/assets/665761a8-9a35-40a2-a693-f0ff8e7f9be9)
+
+추가 USART를 사용할 경우 해당 USART 핀을 활성화 후 위의 설정 적용
+
+Middleware and Software -> FREERTOS -> Interface: CMSIS_V2 -> Tasks and Queues -> defaultTask 더블클릭 -> stack size를 3000으로 설정
+
+![image](https://github.com/user-attachments/assets/d74aae8d-8b98-4f4a-8ebe-832cc610c099)
 
 

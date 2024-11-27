@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/e31363ac-7675-4cb4-8c0f-d28b118f8d3e)# 참고 사이트
+# 참고 사이트
 
 https://github.com/micro-ROS/micro_ros_stm32cubemx_utils.git
 

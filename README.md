@@ -74,4 +74,69 @@ Middleware and Software -> FREERTOS -> Interface: CMSIS_V2 -> Tasks and Queues -
 
 ![image](https://github.com/user-attachments/assets/d74aae8d-8b98-4f4a-8ebe-832cc610c099)
 
+## 4. microROS 다운
+
+humble버전 기준으로 다운
+
+https://github.com/micro-ROS/micro_ros_stm32cubemx_utils/tree/humble
+
+![image](https://github.com/user-attachments/assets/d3b7392d-cc93-42fd-b691-298112712aef)
+
+압축 해제후 폴더명 변경
+
+![image](https://github.com/user-attachments/assets/17a362c4-9015-48a8-92ec-44dbbadf0e1d)
+
+![image](https://github.com/user-attachments/assets/0a9a95e2-fb38-487b-84b1-7b41230a9854)
+
+
+해당 폴더를 복사
+![image](https://github.com/user-attachments/assets/4ed314d6-c560-4db2-8cac-2aed3e616f3f)
+
+
+STM32CubeIDE에서 생성한 프로젝트의 속성탭 선택
+
+![image](https://github.com/user-attachments/assets/9a22da54-ea90-4416-ae0b-d150e263ebb7)
+
+Location 맨 우측버특을 눌러 해당 프로젝트가 있는 폴더로 이동
+
+![image](https://github.com/user-attachments/assets/7a0ed842-0e95-4eca-b975-4b47ad7e3c6f)
+
+![image](https://github.com/user-attachments/assets/f79eadd2-656a-4c06-b41e-635aef1bc776)
+
+
+![image](https://github.com/user-attachments/assets/faeac249-f817-44cf-818c-5360aa560b58)
+
+압축 해제한 micro_ros_stm32_cubemx_utils폴더를 해당 프로젝트 폴더 밑에 붙여넣기
+
+![image](https://github.com/user-attachments/assets/ec954c1d-18ec-47a6-968b-3a51c7629569)
+
+폴더 주소를 copy
+
+![image](https://github.com/user-attachments/assets/0d710831-cc90-49c4-a46d-2b3b8b265929)
+
+cmd창을 열어 해당 프로젝트 폴더로 이동
+
+![image](https://github.com/user-attachments/assets/d44bf759-4802-46d8-93f9-badc0f122cd4)
+
+다음 명령어를 입력
+```bash
+docker pull microros/micro_ros_static_library_builder:humble
+```
+docker를 통해 컨테이너를 다운받은 후 다음 명령을 통해 해당 라이브러리를 빌드 수행.
+
+
+```bash
+    docker run -it --rm -v <현재 설치된 프로젝트의 절대위치>:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library microros/micro_ros_static_library_builder:humble
+```
+
+아래는 예시
+
+```bash
+    docker run -it --rm -v C:\Users\wdrac\STM32CubeIDE\workspace_1.16.1\microROSTest:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library microros/micro_ros_static_library_builder:humble
+```
+
+아래와 같이 docker환경에서 빌드를 수행함.
+
+![image](https://github.com/user-attachments/assets/57ba593e-4a1c-4888-ae3a-034273dfe0e2)
+
 

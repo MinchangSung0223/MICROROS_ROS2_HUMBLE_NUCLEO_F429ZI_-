@@ -1,4 +1,4 @@
-# 참고 사이트
+![image](https://github.com/user-attachments/assets/e31363ac-7675-4cb4-8c0f-d28b118f8d3e)# 참고 사이트
 
 https://github.com/micro-ROS/micro_ros_stm32cubemx_utils.git
 
@@ -126,17 +126,54 @@ docker를 통해 컨테이너를 다운받은 후 다음 명령을 통해 해당
 
 
 ```bash
-    docker run -it --rm -v <현재 설치된 프로젝트의 절대위치>:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library microros/micro_ros_static_library_builder:humble
+    docker run --rm -v <ABSOLUTE_PATH_TO_PROJECT>:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
 ```
 
 아래는 예시
 
 ```bash
-    docker run -it --rm -v C:\Users\wdrac\STM32CubeIDE\workspace_1.16.1\microROSTest:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library microros/micro_ros_static_library_builder:humble
+docker run --rm -v C:\Users\wdrac\STM32CubeIDE\workspace_1.16.1\microROSTest:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
 ```
 
 아래와 같이 docker환경에서 빌드를 수행함.
 
 ![image](https://github.com/user-attachments/assets/57ba593e-4a1c-4888-ae3a-034273dfe0e2)
 
+완료 후
+
+![image](https://github.com/user-attachments/assets/44af9433-be21-4b52-896b-45fa9aee9bea)
+
+
+
+STM32CubeIDE Refresh할 경우 다음과 같이 Project Explorer에 micro_ros_stm32cubemx_utils가 추가됨
+
+![image](https://github.com/user-attachments/assets/ee566e19-36c0-45f2-be60-f75124892ae8)
+
+
+다음과 같이 microros_static_library_ide/libmicroros가 존재해야 함 (빌드 시 생성됨)
+
+![image](https://github.com/user-attachments/assets/532f0319-89c4-4d3d-8337-80edacc48365)
+
+
+## 5. C++ 빌드 설정
+
+project Explorer에서 해당 프로젝트 우클릭 후 properties 들어가서 C/C++ Build -> Settings 선택
+
+![image](https://github.com/user-attachments/assets/0ddf0d1e-fb33-4cf8-907a-e13187a38eaf)
+
+
+Tool Settings-> MCU/MPU GCC Compiler에서 Include paths-> Include Paths 에서  다음을 추가
+```bash
+../microros_static_library_ide/libmicroros/include
+```
+![image](https://github.com/user-attachments/assets/28758dbe-b850-4084-8620-106d60a2c4e0)
+
+
+Tool Settings-> MCU/MPU GCC Linker에서 Libraries에서 다음 사진과 같이 추가
+
+```bash
+../microros_static_library_ide/libmicroros
+```
+
+![image](https://github.com/user-attachments/assets/cd2f07d3-8b21-4069-96e2-a15fa64cf598)
 

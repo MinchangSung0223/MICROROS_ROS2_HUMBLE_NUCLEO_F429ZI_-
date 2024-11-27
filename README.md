@@ -363,6 +363,8 @@ ros2 run micro_ros_agent micro_ros_agent serial -b 115200 --dev /dev/ttyACM0
 ```
 
 
+실행 후 보드의 전원을 껐다 켜야함. 검정색버튼 
+
 
 
 

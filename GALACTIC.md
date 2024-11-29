@@ -78,9 +78,9 @@ Middleware and Software -> FREERTOS -> Interface: CMSIS_V2 -> Tasks and Queues -
 
 ## 4. microROS 다운
 
-humble버전 기준으로 다운
+galactic버전 기준으로 다운
 
-https://github.com/micro-ROS/micro_ros_stm32cubemx_utils/tree/humble
+https://github.com/micro-ROS/micro_ros_stm32cubemx_utils/tree/galactic
 
 ![image](https://github.com/user-attachments/assets/d3b7392d-cc93-42fd-b691-298112712aef)
 
@@ -122,19 +122,20 @@ cmd창을 열어 해당 프로젝트 폴더로 이동
 
 다음 명령어를 입력
 ```bash
-docker pull microros/micro_ros_static_library_builder:humble
+docker pull microros/micro_ros_static_library_builder:galactic
 ```
 docker를 통해 컨테이너를 다운받은 후 다음 명령을 통해 해당 라이브러리를 빌드 수행.
 
 
 ```bash
-    docker run --rm -v <ABSOLUTE_PATH_TO_PROJECT>:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+    docker run --rm -v <ABSOLUTE_PATH_TO_PROJECT>:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide tjdalsckd/microros_static_library:galactic
 ```
+%% galactic에서는 기존의 docker가 실행되지않아 수정한 도커로 변경
 
 아래는 예시
 
 ```bash
-docker run --rm -v C:\Users\wdrac\STM32CubeIDE\workspace_1.16.1\microROSTest:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+docker run --rm -v C:\Users\wdrac\STM32CubeIDE\workspace_1.16.1\microROSTest:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide tjdalsckd/microros_static_library:galactic
 ```
 
 아래와 같이 docker환경에서 빌드를 수행함.
